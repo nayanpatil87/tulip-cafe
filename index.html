@@ -1,0 +1,3956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The Tulip Touch Café – Artisanal coffee, handcrafted beverages, and a cozy ambience in the heart of Vadodara." />
+    <meta name="keywords" content="Coffee Shop, Cafe, Vadodara, Artisanal Coffee, Cozy Ambience, Cafe Template, Premium Cafe Theme" />
+    <meta name="author" content="The Tulip Touch Café" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="The Tulip Touch Café | Artisanal Coffee &amp; Cozy Ambience" />
+    <meta property="og:description" content="Premium cafe and restaurant template. Artisanal coffee, handcrafted beverages, and a cozy ambience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thetuliptouchcafe.com/" />
+    <meta property="og:image" content="IMages/hero_image_1784175732182.png" />
+
+    <title>The Tulip Touch Café | Artisanal Coffee &amp; Cozy Ambience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+    /* ================================================================
+       DESIGN SYSTEM — The Tulip Touch Café
+       ================================================================ */
+
+    :root {
+      /* Refined earth‑tone palette */
+      --coffee-900: #1a0f0a;
+      --coffee-800: #2c1a10;
+      --coffee-700: #3d2516;
+      --coffee-600: #5c3a22;
+      --coffee-500: #7a4f2e;
+      --coffee-400: #a06b3a;
+      --coffee-300: #c49058;
+      --coffee-200: #dbb88a;
+      --coffee-100: #f0ddc4;
+      --coffee-50:  #faf4eb;
+
+      --teal-600: #0d9488;
+      --teal-500: #14b8a6;
+      --teal-400: #2dd4bf;
+
+      --cream:   #fdfaf5;
+      --ivory:   #f8f3ec;
+      --charcoal:#1e1e1e;
+      --slate:   #4a4a4a;
+      --mist:    #7a7a7a;
+
+      /* Semantic tokens */
+      --bg:          var(--cream);
+      --text:        var(--charcoal);
+      --text-muted:  var(--mist);
+      --primary:     var(--coffee-600);
+      --primary-dark:var(--coffee-800);
+      --accent:      var(--teal-500);
+      --accent-hover:var(--teal-600);
+      --card-bg:     rgba(255,255,255,0.75);
+      --glass:       rgba(255,255,255,0.6);
+      --glass-border:rgba(255,255,255,0.25);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --shadow-glow: 0 0 40px rgba(20,184,166,0.15);
+
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: 0.2s ease;
+    }
+
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display:block; max-width:100%; height:auto; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--primary);
+      line-height: 1.25;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    a:hover { color: var(--accent-hover); }
+
+    ::selection {
+      background: var(--coffee-300);
+      color: white;
+    }
+
+    /* Section spacing */
+    .section {
+      padding: 6rem 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       SCROLL REVEAL ANIMATIONS
+       ================================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .stagger > .reveal:nth-child(1) { transition-delay: 0.05s; }
+    .stagger > .reveal:nth-child(2) { transition-delay: 0.15s; }
+    .stagger > .reveal:nth-child(3) { transition-delay: 0.25s; }
+    .stagger > .reveal:nth-child(4) { transition-delay: 0.35s; }
+    .stagger > .reveal:nth-child(5) { transition-delay: 0.45s; }
+    .stagger > .reveal:nth-child(6) { transition-delay: 0.55s; }
+    .stagger > .reveal:nth-child(7) { transition-delay: 0.65s; }
+
+    /* ================================================================
+       HEADER & NAVIGATION
+       ================================================================ */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .site-header.scrolled {
+      background: rgba(253,250,245,0.92);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo .icon {
+      width: 32px; height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none; border: none;
+      padding: 4px;
+      z-index: 110;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2.5px;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: var(--transition);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 280px; height: 100vh;
+        flex-direction: column;
+        background: rgba(253,250,245,0.97);
+        backdrop-filter: blur(24px);
+        padding: 5rem 2rem 2rem;
+        gap: 1.5rem;
+        transition: right var(--transition);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1.1rem; }
+    }
+
+    /* ================================================================
+       HERO
+       ================================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--coffee-900);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45) saturate(1.1);
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero:hover .hero-bg {
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(26,15,10,0.3) 0%,
+        rgba(26,15,10,0.6) 60%,
+        rgba(26,15,10,0.85) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      max-width: 720px;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-full);
+      padding: 0.4rem 1.2rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--coffee-100);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--teal-400);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      letter-spacing: 0.01em;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 20px rgba(20,184,166,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(20,184,166,0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal-400);
+    }
+    .hero-stat .label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* ================================================================
+       FEATURED / POPULAR
+       ================================================================ */
+    .featured {
+      background: var(--ivory);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-card .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .card-img {
+      transform: scale(1.06);
+    }
+    .product-card .img-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .product-card .badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-full);
+    }
+    .product-card .card-body {
+      padding: 1.4rem;
+    }
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+    .product-card .desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 0.8rem;
+    }
+    .product-card .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-card .price {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+    .product-card .order-btn {
+      background: var(--coffee-50);
+      color: var(--primary);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .product-card .order-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ================================================================
+       MENU
+       ================================================================ */
+    .menu-bg {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--ivory) 100%);
+    }
+
+    /* Category tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .menu-tab {
+      background: transparent;
+      border: 1.5px solid var(--coffee-200);
+      color: var(--coffee-500);
+      padding: 0.55rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .menu-tab:hover,
+    .menu-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .menu-card:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-md);
+    }
+    .menu-card .thumb {
+      width: 80px; height: 80px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .menu-card .menu-info {
+      flex: 1;
+    }
+    .menu-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .menu-card .menu-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .menu-card .menu-price {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .menu-card .popular-tag {
+      font-size: 0.65rem;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 0.4rem;
+    }
+
+    /* ================================================================
+       ABOUT
+       ================================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .about-image-wrapper {
+      position: relative;
+    }
+    .about-image-wrapper img {
+      border-radius: var(--radius-lg);
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-image-wrapper .float-card {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: white;
+      padding: 1.2rem 1.6rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .float-card .rating {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+    }
+    .float-card .rating-info {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .float-card .stars { color: #f59e0b; font-size: 0.85rem; }
+
+    .about-text h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .about-text .lead {
+      font-size: 1.05rem;
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .value-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .value-icon {
+      width: 40px; height: 40px;
+      background: var(--coffee-50);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .value-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .value-item p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ================================================================
+       GALLERY
+       ================================================================ */
+    .gallery-bg {
+      background: var(--coffee-900);
+      color: white;
+    }
+    .gallery-bg .section-title { color: var(--coffee-100); }
+    .gallery-bg .section-subtitle { color: rgba(255,255,255,0.5); }
+
+    .gallery-masonry {
+      columns: 3;
+      column-gap: 1rem;
+    }
+    @media (max-width: 900px) { .gallery-masonry { columns: 2; } }
+    @media (max-width: 500px) { .gallery-masonry { columns: 1; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.8);
+    }
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, rgba(0,0,0,0.6));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .gallery-item .overlay span {
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+    /* ================================================================
+       TESTIMONIAL BANNER
+       ================================================================ */
+    .testimonial-section {
+      background: linear-gradient(135deg, var(--coffee-700) 0%, var(--coffee-900) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+      color: var(--coffee-100);
+    }
+    .testimonial-author {
+      font-size: 0.88rem;
+      color: var(--coffee-300);
+      font-weight: 500;
+    }
+    .testimonial-stars {
+      color: #f59e0b;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* ================================================================
+       CONTACT
+       ================================================================ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      color: var(--slate);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #e0d6cc;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: white;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(20,184,166,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .submit-btn {
+      align-self: flex-start;
+    }
+
+    .contact-info-card {
+      background: var(--coffee-50);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .contact-info-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .info-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .info-icon {
+      width: 44px; height: 44px;
+      background: white;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    .info-row .info-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .info-row .info-text p,
+    .info-row .info-text a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .social-link {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+      color: var(--primary);
+    }
+    .social-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .social-link svg {
+      width: 18px; height: 18px;
+      fill: currentColor;
+    }
+
+    /* ================================================================
+       FOOTER
+       ================================================================ */
+    .site-footer {
+      background: var(--coffee-900);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--coffee-200);
+      font-weight: 700;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover { color: var(--teal-400); }
+    .footer-copy {
+      font-size: 0.82rem;
+    }
+
+    /* ================================================================
+       BACK TO TOP
+       ================================================================ */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 46px; height: 46px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition);
+      z-index: 90;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--coffee-800);
+      transform: translateY(-3px);
+    }
+
+    /* ================================================================
+       ACCESSIBILITY
+       ================================================================ */
+    .sr-only {
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ================================================================
+       RESPONSIVE FINE‑TUNING
+       ================================================================ */
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 1rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+
+
+
+    /* Cozy Dark Mode Theme */
+    body.dark-mode {
+      --bg: #140b07;
+      --text: #f5ede3;
+      --text-muted: #c4a882;
+      --primary: #f0ddc4;
+      --primary-dark: #faf4eb;
+      --accent: #2dd4bf;
+      --accent-hover: #14b8a6;
+      --card-bg: rgba(44, 26, 16, 0.85);
+      --glass: rgba(20, 11, 7, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --ivory: #1a0f0a;
+      --cream: #140b07;
+      --charcoal: #f5ede3;
+      --slate: #d4bfa8;
+      --mist: #b89e80;
+      --coffee-50: #241610;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.25);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.35);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    /* ---- Header & Nav ---- */
+    body.dark-mode .site-header.scrolled {
+      background: rgba(20, 11, 7, 0.92);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.35);
+    }
+    body.dark-mode .nav-links a {
+      color: var(--text);
+    }
+    body.dark-mode .nav-links a:hover {
+      color: var(--accent);
+    }
+    body.dark-mode .logo {
+      color: var(--primary);
+    }
+    body.dark-mode .hamburger span {
+      background: var(--primary);
+    }
+    @media (max-width: 768px) {
+      body.dark-mode .nav-links {
+        background: rgba(20, 11, 7, 0.97);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+      }
+    }
+
+    /* ---- Cards & Backgrounds ---- */
+    body.dark-mode .product-card,
+    body.dark-mode .menu-card,
+    body.dark-mode .float-card,
+    body.dark-mode .contact-info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+    }
+    body.dark-mode .product-card:hover,
+    body.dark-mode .menu-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ---- Section & Text ---- */
+    body.dark-mode .section-title {
+      color: var(--primary);
+    }
+    body.dark-mode .section-subtitle {
+      color: var(--text-muted);
+    }
+    body.dark-mode .product-card h3,
+    body.dark-mode .menu-card h4 {
+      color: var(--primary);
+    }
+    body.dark-mode .product-card .desc,
+    body.dark-mode .menu-card .menu-desc {
+      color: var(--text-muted);
+    }
+    body.dark-mode .product-card .price,
+    body.dark-mode .menu-card .menu-price {
+      color: var(--accent);
+    }
+    body.dark-mode .product-card .order-btn {
+      background: rgba(240, 221, 196, 0.12);
+      color: var(--primary);
+    }
+    body.dark-mode .product-card .order-btn:hover {
+      background: var(--primary);
+      color: #140b07;
+    }
+
+    /* ---- Menu section ---- */
+    body.dark-mode .menu-bg {
+      background: linear-gradient(180deg, #140b07 0%, #1a0f0a 100%);
+    }
+    body.dark-mode .menu-tab {
+      border-color: #3d2516;
+      color: var(--text-muted);
+    }
+    body.dark-mode .menu-tab:hover,
+    body.dark-mode .menu-tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    body.dark-mode .menu-card .popular-tag {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
+
+    /* ---- About section ---- */
+    body.dark-mode .about-text h2 {
+      color: var(--primary);
+    }
+    body.dark-mode .about-text .lead {
+      color: var(--text-muted);
+    }
+    body.dark-mode .value-item h4 {
+      color: var(--text);
+    }
+    body.dark-mode .value-item p {
+      color: var(--text-muted);
+    }
+    body.dark-mode .value-icon {
+      background: rgba(240, 221, 196, 0.08);
+    }
+    body.dark-mode .about-image-wrapper .float-card {
+      background: rgba(44, 26, 16, 0.95);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .float-card .rating {
+      color: var(--primary);
+    }
+    body.dark-mode .float-card .rating-info {
+      color: var(--text-muted);
+    }
+
+    /* ---- Contact section ---- */
+    body.dark-mode .form-group label {
+      color: var(--text);
+    }
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea {
+      background: #1c100a;
+      border-color: #3d2516;
+      color: var(--text);
+    }
+    body.dark-mode .form-group input::placeholder,
+    body.dark-mode .form-group textarea::placeholder {
+      color: #7a5e45;
+    }
+    body.dark-mode .contact-info-card {
+      background: rgba(44, 26, 16, 0.65);
+    }
+    body.dark-mode .contact-info-card h3 {
+      color: var(--primary);
+    }
+    body.dark-mode .info-icon {
+      background: rgba(240, 221, 196, 0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    body.dark-mode .info-row .info-text h4 {
+      color: var(--text);
+    }
+    body.dark-mode .info-row .info-text p,
+    body.dark-mode .info-row .info-text a {
+      color: var(--text-muted);
+    }
+    body.dark-mode .social-link {
+      background: rgba(240, 221, 196, 0.08);
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    body.dark-mode .social-link:hover {
+      background: var(--primary);
+      color: #140b07;
+    }
+
+    /* ---- Cart sidebar ---- */
+    body.dark-mode .cart-footer {
+      background: rgba(0,0,0,0.15);
+    }
+    body.dark-mode .cart-total-row {
+      color: var(--text);
+    }
+
+    /* ---- Misc elements ---- */
+    body.dark-mode .back-to-top {
+      background: var(--accent);
+    }
+    body.dark-mode .back-to-top:hover {
+      background: var(--accent-hover);
+    }
+    body.dark-mode ::selection {
+      background: var(--accent);
+      color: #140b07;
+    }
+    body.dark-mode .featured {
+      background: #1a0f0a;
+    }
+
+    /* ---- Admin panel in dark mode ---- */
+    body.dark-mode .admin-dashboard {
+      background: rgba(20, 11, 7, 0.95);
+    }
+    body.dark-mode .admin-header {
+      background: rgba(44, 26, 16, 0.85);
+      border-color: var(--glass-border);
+    }
+    body.dark-mode .admin-table-container {
+      background: rgba(44, 26, 16, 0.65);
+      border-color: var(--glass-border);
+    }
+    body.dark-mode .admin-table th {
+      background: rgba(240, 221, 196, 0.06);
+    }
+
+    /* Nav Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-action-btn {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      color: var(--primary);
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    .nav-action-btn:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    body.dark-mode .nav-action-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-action-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(1);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .cart-count.pop {
+      transform: scale(1.4);
+    }
+
+    /* Cart Sidebar Drawer */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid var(--glass-border);
+      z-index: 1000;
+      box-shadow: var(--shadow-lg);
+      transition: right var(--transition);
+      display: flex;
+      flex-direction: column;
+      color: var(--text);
+    }
+    .cart-sidebar.open {
+      right: 0;
+    }
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+    .close-cart-btn {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px dashed var(--glass-border);
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-details h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cart-item-price {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+    .qty-btn {
+      background: var(--coffee-50);
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--coffee-800);
+      transition: background var(--transition-fast);
+    }
+    body.dark-mode .qty-btn {
+      background: var(--coffee-700);
+      color: var(--coffee-100);
+    }
+    .qty-btn:hover {
+      background: var(--coffee-200);
+    }
+    .qty-val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+    .remove-item-btn {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.2rem;
+    }
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      background: rgba(0,0,0,0.02);
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .checkout-btn {
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem;
+    }
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Flying animation item */
+    .flying-item {
+      position: fixed;
+      z-index: 10000;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+    }
+
+    /* Menu Search */
+    .menu-search-wrapper {
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .menu-search-input {
+      width: 100%;
+      padding: 0.85rem 1.2rem 0.85rem 3rem;
+      border: 1.5px solid var(--coffee-200);
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: white;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      outline: none;
+    }
+    body.dark-mode .menu-search-input {
+      background: #1c100a;
+      border-color: #3d2516;
+      color: var(--text);
+    }
+    .menu-search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(20,184,166,0.12);
+    }
+    .menu-search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--coffee-400);
+      pointer-events: none;
+    }
+
+    /* Reservation Wizard */
+    .wizard-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .wizard-steps::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0d6cc;
+      z-index: 1;
+    }
+    body.dark-mode .wizard-steps::before {
+      background: #3d2516;
+    }
+    .wizard-step-progress {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      z-index: 1;
+      width: 0%;
+      transition: width var(--transition);
+    }
+    .wizard-step-node {
+      position: relative;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      background: white;
+      border: 2px solid #e0d6cc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all var(--transition-fast);
+    }
+    body.dark-mode .wizard-step-node {
+      background: #1c100a;
+      border-color: #3d2516;
+    }
+    .wizard-step-node.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+    .wizard-step-node.completed {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+    .wizard-panel {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .wizard-panel.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .time-slot-chip {
+      padding: 0.6rem;
+      text-align: center;
+      border: 1.5px solid #e0d6cc;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+    body.dark-mode .time-slot-chip {
+      border-color: #3d2516;
+      background: #1c100a;
+      color: var(--text);
+    }
+    .time-slot-chip:hover {
+      border-color: var(--accent);
+      background: rgba(20,184,166,0.05);
+    }
+    .time-slot-chip.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    .preference-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .preference-card {
+      border: 1.5px solid #e0d6cc;
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: white;
+    }
+    body.dark-mode .preference-card {
+      border-color: #3d2516;
+      background: #1c100a;
+    }
+    .preference-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .preference-card.active {
+      border-color: var(--accent);
+      background: rgba(20,184,166,0.05);
+      box-shadow: 0 0 0 3px rgba(20,184,166,0.12);
+    }
+    body.dark-mode .preference-card.active {
+      background: rgba(20,184,166,0.1);
+    }
+    .preference-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .preference-card h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .wizard-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    .wizard-btn-prev {
+      background: transparent;
+      border: 1.5px solid var(--coffee-300);
+      color: var(--coffee-700);
+    }
+    body.dark-mode .wizard-btn-prev {
+      color: var(--coffee-100);
+    }
+    .wizard-summary-card {
+      background: var(--coffee-50);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-top: 1rem;
+      border: 1px dashed var(--coffee-200);
+    }
+    body.dark-mode .wizard-summary-card {
+      background: rgba(44, 26, 16, 0.5);
+      border-color: #3d2516;
+    }
+    .wizard-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .wizard-summary-row span:first-child {
+      color: var(--text-muted);
+    }
+    .wizard-summary-row span:last-child {
+      font-weight: 600;
+    }
+
+    /* Coffee Steam Animation */
+    .steam-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 5;
+    }
+    .menu-card:hover .steam-container,
+    .product-card:hover .steam-container {
+      opacity: 1;
+    }
+    .steam-line {
+      position: absolute;
+      bottom: 25%;
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to top, rgba(255,255,255,0.4), transparent);
+      filter: blur(1.5px);
+      animation: floatSteam 3s infinite ease-in-out;
+      border-radius: 50%;
+    }
+    .steam-line:nth-child(1) { left: 42%; animation-delay: 0s; }
+    .steam-line:nth-child(2) { left: 50%; animation-delay: 0.8s; height: 50px; }
+    .steam-line:nth-child(3) { left: 58%; animation-delay: 1.6s; }
+
+    @keyframes floatSteam {
+      0% {
+        transform: translateY(0) scaleX(1) translateX(0);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-40px) scaleX(1.5) translateX(5px);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-80px) scaleX(2) translateX(-5px);
+        opacity: 0;
+      }
+    }
+
+
+    /* ============================================================
+       STAFF PORTAL — Premium Design System
+       ============================================================ */
+    .admin-login-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 11, 7, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .admin-login-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .admin-login-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: var(--shadow-lift);
+      position: relative;
+    }
+    .admin-login-card h3 {
+      font-family: var(--font-family-serif);
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      text-align: center;
+    }
+    .admin-login-card .field {
+      text-align: left;
+      margin-bottom: 1.25rem;
+    }
+    .admin-login-card .field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-color);
+    }
+    .admin-login-card .field input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-color);
+      background: var(--bg);
+      color: var(--text-color);
+      font-family: inherit;
+    }
+    .admin-login-card .field input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    .admin-login-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .close-login-btn {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      cursor: pointer;
+    }
+
+
+    /* --- Staff Dashboard Full-Screen Panel --- */
+    .admin-dashboard {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 1999;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      overflow: hidden;
+    }
+    .admin-dashboard.active { opacity: 1; visibility: visible; }
+    @keyframes portalSlideUp {
+      from { transform: translateY(20px) scale(0.97); opacity: 0; }
+      to   { transform: translateY(0)     scale(1);    opacity: 1; }
+    }
+
+    /* --- Portal Sidebar + Content Layout --- */
+    .portal-layout { display: flex; height: 100vh; overflow: hidden; }
+    .portal-sidebar {
+      width: 230px;
+      flex-shrink: 0;
+      background: var(--coffee-800);
+      color: #f0ddc4;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .portal-sidebar-brand {
+      padding: 1.4rem 1.4rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .portal-sidebar-brand h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #f0ddc4;
+      margin: 0 0 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .portal-sidebar-brand p { font-size: 0.7rem; color: rgba(240,221,196,0.5); margin: 0; }
+    .portal-nav { flex: 1; padding: 0.8rem 0; }
+    .portal-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1.4rem;
+      color: rgba(240,221,196,0.7);
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      border-left: 3px solid transparent;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    .portal-nav-item .nav-icon { font-size: 1.05rem; }
+    .portal-nav-item .nav-badge {
+      margin-left: auto;
+      background: var(--accent);
+      color: white;
+      border-radius: 99px;
+      padding: 1px 8px;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+    .portal-nav-item:hover { background: rgba(255,255,255,0.07); color: #f0ddc4; }
+    .portal-nav-item.active { background: rgba(255,255,255,0.1); color: #fff; border-left-color: var(--accent); }
+    .portal-sidebar-footer {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .portal-sidebar-footer button {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(240,221,196,0.75);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.9rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.18s ease;
+      width: 100%;
+      font-family: inherit;
+    }
+    .portal-sidebar-footer button:hover { background: rgba(255,255,255,0.14); color: white; }
+    .portal-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .portal-topbar {
+      padding: 0.9rem 1.8rem;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+    }
+    .portal-topbar h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0; }
+    .portal-content { flex: 1; overflow-y: auto; padding: 1.6rem; }
+    .portal-panel { display: none; }
+    .portal-panel.active { display: block; }
+
+    /* --- Stats Grid --- */
+    .staff-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .staff-stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .staff-stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .staff-stat-icon {
+      font-size: 1.4rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--coffee-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    body.dark-mode .staff-stat-icon { background: rgba(255,255,255,0.08); }
+    .staff-stat-info .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--primary); line-height: 1.1; }
+    .staff-stat-info .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.12rem; }
+
+    /* --- Filter Bar & Search --- */
+    .staff-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .staff-search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.6rem 1.1rem;
+      border: 1.5px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      font-family: inherit;
+      font-size: 0.86rem;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .staff-search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(20,184,166,0.12); }
+    body.dark-mode .staff-search-input { border-color: rgba(255,255,255,0.12); }
+    .btn-walkin {
+      background: linear-gradient(135deg, var(--primary), var(--coffee-700));
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1.2rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-walkin:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* --- Bookings Table --- */
+    .admin-table-container {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-table { width: 100%; border-collapse: collapse; font-size: 0.865rem; }
+    .admin-table thead tr { background: var(--coffee-50); }
+    body.dark-mode .admin-table thead tr { background: rgba(255,255,255,0.06); }
+    .admin-table th {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .admin-table td { padding: 0.8rem 1rem; border-top: 1px solid var(--glass-border); vertical-align: middle; color: var(--text); }
+    .admin-table tbody tr { background: var(--card-bg); transition: background 0.15s ease; }
+    .admin-table tbody tr:hover { background: var(--coffee-50); }
+    body.dark-mode .admin-table tbody tr:hover { background: rgba(255,255,255,0.04); }
+    .new-booking-highlight { animation: rowPulse 1.8s ease; }
+    @keyframes rowPulse { 0% { background: rgba(20,184,166,0.2); } 100% { background: transparent; } }
+
+    /* --- Status Badges --- */
+    .status-badge {
+      display: inline-block;
+      padding: 0.22rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .status-badge.pending   { background: rgba(245,158,11,0.15); color: #d97706; }
+    .status-badge.confirmed { background: rgba(20,184,166,0.15);  color: #0d9488; }
+    .status-badge.seated    { background: rgba(59,130,246,0.15);   color: #2563eb; }
+    .status-badge.cancelled { background: rgba(239,68,68,0.15);    color: #dc2626; }
+
+    /* --- Action Buttons --- */
+    .admin-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.33rem 0.7rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0.12rem;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .admin-action-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+    .admin-action-btn.confirm-btn    { background: linear-gradient(135deg,#0d9488,#14b8a6); color:white; box-shadow:0 2px 8px rgba(20,184,166,0.3); }
+    .admin-action-btn.seat-btn       { background: linear-gradient(135deg,#2563eb,#3b82f6); color:white; }
+    .admin-action-btn.resend-email-btn { background: linear-gradient(135deg,#0284c7,#0ea5e9); color:white; }
+    .admin-action-btn.cancel-btn     { background:rgba(239,68,68,0.1); color:#dc2626; border:1px solid rgba(239,68,68,0.25); }
+    .admin-action-btn.delete-btn     { background:rgba(100,100,100,0.1); color:var(--text-muted); border:1px solid var(--glass-border); }
+
+    /* --- Email Log Panel --- */
+    .email-log-list { display:flex; flex-direction:column; gap:0.75rem; }
+    .email-log-item {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+    .email-log-item:hover { box-shadow: var(--shadow-md); }
+    .email-log-icon {
+      font-size: 1.3rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(20,184,166,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .email-log-info { flex: 1; }
+    .email-log-info .log-guest { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+    .email-log-info .log-meta  { font-size: 0.76rem; color: var(--text-muted); margin-top: 0.12rem; }
+    .email-log-status { font-size: 0.7rem; font-weight: 700; padding: 0.18rem 0.6rem; border-radius: 99px; background: rgba(20,184,166,0.15); color: #0d9488; white-space: nowrap; }
+    .email-log-btn {
+      background: none;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 0.32rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    .email-log-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .email-empty { text-align:center; padding:3rem 1rem; color:var(--text-muted); }
+    .email-empty .empty-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .email-empty p { font-size: 0.88rem; line-height: 1.6; }
+
+    /* --- Walk-in Modal --- */
+    .walkin-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,11,7,0.55);
+      backdrop-filter: blur(10px);
+      z-index: 2100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .walkin-modal-overlay.active { opacity:1; visibility:visible; }
+    .walkin-modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: var(--shadow-lg);
+      animation: portalSlideUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.15);
+    }
+    .walkin-modal-card h3 { font-family:'Playfair Display',serif; margin:0 0 1.2rem; color:var(--text); font-size:1.3rem; }
+    .walkin-field { margin-bottom: 1rem; }
+    .walkin-field label { display:block; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); margin-bottom:0.35rem; }
+    .walkin-field input, .walkin-field select {
+      width:100%; padding:0.7rem 1rem; border:1.5px solid var(--glass-border);
+      border-radius:var(--radius-sm); background:var(--bg); color:var(--text);
+      font-family:inherit; font-size:0.9rem; transition:border-color 0.2s ease;
+    }
+    .walkin-field input:focus, .walkin-field select:focus { border-color:var(--accent); outline:none; }
+    .walkin-actions { display:flex; gap:0.8rem; margin-top:1.2rem; }
+    .walkin-actions .btn { flex:1; justify-content:center; }
+
+    /* Responsive sidebar */
+    @media (max-width: 600px) {
+      .portal-layout { flex-direction: column; height: 100vh; }
+      .portal-sidebar { width:100%; flex-direction:row; overflow-x:auto; height:auto; }
+      .portal-sidebar-brand, .portal-sidebar-footer { display:none; }
+      .portal-nav { display:flex; padding:0; }
+      .portal-nav-item { flex-direction:column; gap:0.15rem; padding:0.5rem 0.8rem; font-size:0.7rem; border-left:none; border-bottom:3px solid transparent; flex-shrink:0; }
+      .portal-nav-item.active { border-bottom-color:var(--accent); border-left-color:transparent; }
+      .portal-content { padding: 1rem; }
+    }
+
+
+
+    /* Email Confirmation Modal Styles */
+    .email-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 11, 7, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .email-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .email-modal-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+      overflow: hidden;
+      animation: modalSlideUp 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.15);
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(30px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .email-modal-header {
+      background: #1a0f0a;
+      color: white;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .email-modal-header h3 {
+      color: #f0ddc4;
+      font-size: 1.1rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .email-modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      background: #fdfaf5;
+      color: #1e1e1e;
+      font-family: 'Inter', sans-serif;
+    }
+    .email-meta-box {
+      background: #f0ddc433;
+      border: 1px solid #dbb88a80;
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      font-size: 0.82rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .email-meta-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+    .email-meta-label {
+      font-weight: 700;
+      color: #5c3a22;
+      min-width: 65px;
+    }
+    .email-template-ticket {
+      background: white;
+      border: 1.5px solid #e0d6cc;
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .email-ticket-header {
+      text-align: center;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px dashed #dbb88a;
+      margin-bottom: 1.2rem;
+    }
+    .email-ticket-header h4 {
+      font-size: 1.4rem;
+      color: #5c3a22;
+      margin: 0.3rem 0;
+    }
+    .email-ticket-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0;
+      font-size: 0.88rem;
+    }
+    .email-detail-item {
+      background: #faf4eb;
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-sm);
+    }
+    .email-detail-label {
+      font-size: 0.72rem;
+      color: #7a7a7a;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .email-detail-val {
+      font-weight: 700;
+      color: #2c1a10;
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
+    }
+    .email-modal-footer {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #e0d6cc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    /* Menu Customizer cards */
+    .menu-customizer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .customizer-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .customizer-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .customizer-info {
+      flex: 1;
+    }
+    .customizer-info h4 {
+      margin: 0 0 0.4rem 0;
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+    .customizer-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .customizer-price-input {
+      width: 70px;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg);
+      color: var(--text-color);
+      font-weight: 700;
+    }
+    .status-toggle {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg);
+      cursor: pointer;
+      color: var(--text-color);
+    }
+    .status-toggle.sold-out {
+      background: #dc3545;
+      color: white;
+      border-color: #dc3545;
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- ======================== HEADER ======================== -->
+<header class="site-header" id="site-header" role="banner">
+  <nav class="nav-bar" aria-label="Primary navigation">
+    <a href="#home" class="logo" aria-label="The Tulip Touch Café home">
+      <img src="IMages/logo.jpg" alt="Tulip Touch Café Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+      Tulip Touch Café
+    </a>
+    <div style="display: flex; align-items: center; gap: 0.8rem;">
+      <div class="nav-actions">
+        
+        <button id="theme-toggle" class="nav-action-btn" aria-label="Toggle Cozy Mode">
+          <!-- Sun icon -->
+          <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L18.36 16.95zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM5.99 18.01l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z"/></svg>
+          <!-- Moon icon -->
+          <svg class="moon-icon" viewBox="0 0 24 24" style="display:none;"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.2 1.2-.8 1.4-3.9 1.3-6.7 4.9-6.7 9.1 0 4.4 3.6 8 8 8 4.1 0 7.7-2.7 9.1-6.7.2-.6.8-.9 1.4-.8.6.1 1 .7.9 1.3-.9 4.7-5 8.2-9.8 8.2z"/></svg>
+        </button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Book Table</a></li>
+
+    </ul>
+  </nav>
+</header>
+
+<!-- ======================== HERO ======================== -->
+<section id="home" class="hero">
+  <img src="IMages/hero_image_1784175732182.png" alt="The Tulip Touch Café cozy interior" class="hero-bg" />
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Now Open in Vadodara</div>
+    <h1>Where Every Cup Tells a Story</h1>
+    <p>Handcrafted coffees, artisanal pastries, and a warm artistic ambience — experience the Tulip Touch.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-primary">Explore Menu ↓</a>
+      <a href="#contact" class="btn btn-outline">Book a Table</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">4.5★</div>
+        <div class="label">Google Rating</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">2K+</div>
+        <div class="label">Happy Reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">50+</div>
+        <div class="label">Menu Items</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FEATURED ======================== -->
+<section class="section featured">
+  <div class="container">
+    <h2 class="section-title reveal">Popular Choices</h2>
+    <p class="section-subtitle reveal">Guests' all‑time favourites — handpicked for you.</p>
+    <div class="product-grid stagger">
+
+      <div class="product-card reveal">
+        <div class="img-wrapper">
+          <img src="IMages/cappuccino_coffee_1784193835772.png" alt="Cappuccino Coffee with latte art" class="card-img" />
+          <span class="badge">Bestseller</span>
+        </div>
+        <div class="card-body">
+          <h3>Cappuccino</h3>
+          <p class="desc">Rich espresso crowned with velvety steamed milk and a whisper of cocoa.</p>
+          <div class="price-row">
+            <span class="price">₹350</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="img-wrapper">
+          <img src="IMages/loaded_biscoff_1784193941136.png" alt="Loaded Biscoff Shake" class="card-img" />
+          <span class="badge">Signature</span>
+        </div>
+        <div class="card-body">
+          <h3>Loaded Biscoff</h3>
+          <p class="desc">Biscoff shake topped with whipped cream, crumble, and caramel drizzle.</p>
+          <div class="price-row">
+            <span class="price">₹450</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="img-wrapper">
+          <img src="IMages/cheese_garlic_bread_1784193926161.png" alt="Cheese Garlic Bread and snacks platter" class="card-img" />
+          <span class="badge">Popular</span>
+        </div>
+        <div class="card-body">
+          <h3>Snacks Platter</h3>
+          <p class="desc">Cheese garlic bread, chilli cheese toast, and nachos — perfect for sharing.</p>
+          <div class="price-row">
+            <span class="price">₹480</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== MENU ======================== -->
+<section id="menu" class="section menu-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Our Menu</h2>
+    <p class="section-subtitle reveal">From aromatic coffees to hearty bowls — there's something for every craving.</p>
+
+    <div class="menu-search-wrapper reveal">
+      <svg class="menu-search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="menu-search" class="menu-search-input" placeholder="Search our menu (e.g. coffee, pasta, bowl)..." aria-label="Search menu items" />
+    </div>
+
+    <div class="menu-tabs reveal" role="tablist">
+      <button class="menu-tab active" data-category="all" role="tab">All</button>
+      <button class="menu-tab" data-category="coffee" role="tab">Coffee &amp; Beverages</button>
+      <button class="menu-tab" data-category="mains" role="tab">Mains &amp; Bowls</button>
+      <button class="menu-tab" data-category="snacks" role="tab">Snacks</button>
+      <button class="menu-tab" data-category="desserts" role="tab">Desserts &amp; Shakes</button>
+    </div>
+
+    <div class="menu-grid stagger" id="menu-grid">
+
+      <!-- Menu Items will be dynamically populated here via JS -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TESTIMONIAL BANNER ======================== -->
+<section class="testimonial-section" aria-label="Customer testimonial">
+  <div class="testimonial-stars reveal" aria-hidden="true">★ ★ ★ ★ ★</div>
+  <blockquote class="testimonial-quote reveal">
+    "The food was amazing — best interior and fantastic staff service. Ordered a hot chocolate, makhani pasta and a Mexican burrito bowl. Everything was perfect!"
+  </blockquote>
+  <p class="testimonial-author reveal">— Verified Google Review · 4.5/5 from 2,033 reviews</p>
+</section>
+
+<!-- ======================== ABOUT ======================== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal">
+        <img src="IMages/ambience2.avif" alt="Interior of The Tulip Touch Café with artistic décor" />
+        <div class="float-card">
+          <div>
+            <div class="rating">4.5</div>
+          </div>
+          <div>
+            <div class="stars" aria-label="4.5 out of 5 stars">★★★★½</div>
+            <div class="rating-info">2,033 Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h2 class="reveal">A Café Born from Passion</h2>
+        <p class="lead reveal">Founded in the heart of Vadodara, The Tulip Touch Café began as a humble neighbourhood spot where coffee lovers could gather, relax, and enjoy artisanal beverages surrounded by inspiring art.</p>
+        <p class="lead reveal">Our passion for quality beans, handcrafted recipes, and warm hospitality drives everything we do — from the first pour of espresso at 11 AM to the last latte art of the evening.</p>
+        <div class="values-grid">
+          <div class="value-item reveal">
+            <div class="value-icon" aria-hidden="true">🌿</div>
+            <div>
+              <h4>Quality First</h4>
+              <p>Ethically sourced beans and fresh local ingredients.</p>
+            </div>
+          </div>
+          <div class="value-item reveal">
+            <div class="value-icon" aria-hidden="true">🤝</div>
+            <div>
+              <h4>Community</h4>
+              <p>A welcoming space for friends, families, and creatives.</p>
+            </div>
+          </div>
+          <div class="value-item reveal">
+            <div class="value-icon" aria-hidden="true">♻️</div>
+            <div>
+              <h4>Sustainability</h4>
+              <p>Eco‑friendly practices from cup to compost.</p>
+            </div>
+          </div>
+          <div class="value-item reveal">
+            <div class="value-icon" aria-hidden="true">🎨</div>
+            <div>
+              <h4>Artful Space</h4>
+              <p>Aesthetic décor that inspires and delights.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GALLERY ======================== -->
+<section id="gallery" class="section gallery-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Our Gallery</h2>
+    <p class="section-subtitle reveal">A glimpse into the Tulip Touch experience.</p>
+    <div class="gallery-masonry stagger">
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 2"><img src="IMages/468094081_17983971179781218_6609106026371798586_n.jpg" alt="Cafe Highlight 2" loading="lazy" /><div class="overlay"><span>Cafe Highlight 2</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 3"><img src="IMages/468303195_17983966766781218_6833138865497811201_n.jpg" alt="Cafe Highlight 3" loading="lazy" /><div class="overlay"><span>Cafe Highlight 3</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 4"><img src="IMages/618800085_17930087613036935_1279189720858967670_n.webp" alt="Cafe Highlight 4" loading="lazy" /><div class="overlay"><span>Cafe Highlight 4</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 5"><img src="IMages/619844701_17999006510713163_7561874488748593921_n.webp" alt="Cafe Highlight 5" loading="lazy" /><div class="overlay"><span>Cafe Highlight 5</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 6"><img src="IMages/619960460_18064536017256245_6773631637917164718_n.webp" alt="Cafe Highlight 6" loading="lazy" /><div class="overlay"><span>Cafe Highlight 6</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 7"><img src="IMages/623228731_18074617763096411_7404462916125538405_n.webp" alt="Cafe Highlight 7" loading="lazy" /><div class="overlay"><span>Cafe Highlight 7</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 8"><img src="IMages/623293830_18088270781035758_7010428927962559829_n.webp" alt="Cafe Highlight 8" loading="lazy" /><div class="overlay"><span>Cafe Highlight 8</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 9"><img src="IMages/625051483_17975832434985449_7521008689115002307_n.webp" alt="Cafe Highlight 9" loading="lazy" /><div class="overlay"><span>Cafe Highlight 9</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 10"><img src="IMages/625089908_18302874124279304_7397247242393476451_n.webp" alt="Cafe Highlight 10" loading="lazy" /><div class="overlay"><span>Cafe Highlight 10</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 11"><img src="IMages/625196581_18313133266271991_2282161403347744898_n.webp" alt="Cafe Highlight 11" loading="lazy" /><div class="overlay"><span>Cafe Highlight 11</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 12"><img src="IMages/625345822_18103906762802647_4686196424163193781_n.webp" alt="Cafe Highlight 12" loading="lazy" /><div class="overlay"><span>Cafe Highlight 12</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 13"><img src="IMages/626832110_18298680811302440_8796970811654805543_n.webp" alt="Cafe Highlight 13" loading="lazy" /><div class="overlay"><span>Cafe Highlight 13</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 14"><img src="IMages/629516479_18345655609226971_8717791280373761061_n.webp" alt="Cafe Highlight 14" loading="lazy" /><div class="overlay"><span>Cafe Highlight 14</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 15"><img src="IMages/652381747_18087114293275063_3050343658095087859_n.jpg" alt="Cafe Highlight 15" loading="lazy" /><div class="overlay"><span>Cafe Highlight 15</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 16"><img src="IMages/653693056_18116480077564841_427681577954798701_n.jpg" alt="Cafe Highlight 16" loading="lazy" /><div class="overlay"><span>Cafe Highlight 16</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 17"><img src="IMages/654811712_18156744361442878_2773731822392774501_n.jpg" alt="Cafe Highlight 17" loading="lazy" /><div class="overlay"><span>Cafe Highlight 17</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 18"><img src="IMages/655011663_18109239667813846_4929758133795705633_n.jpg" alt="Cafe Highlight 18" loading="lazy" /><div class="overlay"><span>Cafe Highlight 18</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 19"><img src="IMages/657675566_18451305646111345_3297779031150818751_n.jpg" alt="Cafe Highlight 19" loading="lazy" /><div class="overlay"><span>Cafe Highlight 19</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Cafe Highlight 20"><img src="IMages/659582635_18435787027136912_3642248773196221142_n.webp" alt="Cafe Highlight 20" loading="lazy" /><div class="overlay"><span>Cafe Highlight 20</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience"><img src="IMages/ambience.avif" alt="Ambience" loading="lazy" /><div class="overlay"><span>Ambience</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 1"><img src="IMages/ambience1.avif" alt="Ambience 1" loading="lazy" /><div class="overlay"><span>Ambience 1</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 2"><img src="IMages/ambience2.avif" alt="Ambience 2" loading="lazy" /><div class="overlay"><span>Ambience 2</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 3"><img src="IMages/ambience3.avif" alt="Ambience 3" loading="lazy" /><div class="overlay"><span>Ambience 3</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 4"><img src="IMages/ambience4.avif" alt="Ambience 4" loading="lazy" /><div class="overlay"><span>Ambience 4</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 5"><img src="IMages/ambience5.avif" alt="Ambience 5" loading="lazy" /><div class="overlay"><span>Ambience 5</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Ambience 6"><img src="IMages/ambience6.avif" alt="Ambience 6" loading="lazy" /><div class="overlay"><span>Ambience 6</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food"><img src="IMages/food.avif" alt="Delicious Food" loading="lazy" /><div class="overlay"><span>Delicious Food</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 1"><img src="IMages/food1.avif" alt="Delicious Food 1" loading="lazy" /><div class="overlay"><span>Delicious Food 1</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 2"><img src="IMages/food2.jpg" alt="Delicious Food 2" loading="lazy" /><div class="overlay"><span>Delicious Food 2</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 3"><img src="IMages/food3.avif" alt="Delicious Food 3" loading="lazy" /><div class="overlay"><span>Delicious Food 3</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 4"><img src="IMages/food4.avif" alt="Delicious Food 4" loading="lazy" /><div class="overlay"><span>Delicious Food 4</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 5"><img src="IMages/food5.avif" alt="Delicious Food 5" loading="lazy" /><div class="overlay"><span>Delicious Food 5</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 6"><img src="IMages/food6.avif" alt="Delicious Food 6" loading="lazy" /><div class="overlay"><span>Delicious Food 6</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 7"><img src="IMages/food7.avif" alt="Delicious Food 7" loading="lazy" /><div class="overlay"><span>Delicious Food 7</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 8"><img src="IMages/food8.webp" alt="Delicious Food 8" loading="lazy" /><div class="overlay"><span>Delicious Food 8</span></div></div>
+      <div class="gallery-item reveal" tabindex="0" role="button" aria-label="View Delicious Food 9"><img src="IMages/food9.avif" alt="Delicious Food 9" loading="lazy" /><div class="overlay"><span>Delicious Food 9</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">✕</button>
+  <img id="lightbox-img" src="" alt="Enlarged gallery photo" />
+</div>
+
+<!-- ======================== CONTACT ======================== -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Get in Touch</h2>
+    <p class="section-subtitle reveal">Have a question or want to book a table? We'd love to hear from you.</p>
+    <div class="contact-grid">
+
+      <div class="contact-form-wrapper reveal" aria-label="Table booking wizard" style="width:100%;">
+        <!-- Progress Steps -->
+        <div class="wizard-steps" role="navigation" aria-label="Booking steps">
+          <div class="wizard-step-progress" id="wizard-progress"></div>
+          <div class="wizard-step-node active" data-step="1" title="Date & Time">1</div>
+          <div class="wizard-step-node" data-step="2" title="Details">2</div>
+          <div class="wizard-step-node" data-step="3" title="Summary">3</div>
+        </div>
+
+        <form id="reservation-wizard-form" class="contact-form" onsubmit="return false;">
+          <!-- Step 1: Date & Time -->
+          <div class="wizard-panel active" data-step="1">
+            <h4 style="margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-weight:600; color: var(--primary);">Choose Date & Time</h4>
+            <div class="form-group reveal" style="margin-bottom: 1.2rem;">
+              <label for="booking-date">Select Date</label>
+              <input type="date" id="booking-date" required />
+            </div>
+            <div class="form-group reveal">
+              <label>Select Time Slot</label>
+              <div class="time-slots" id="time-slots-container">
+                <div class="time-slot-chip active" data-time="11:00 AM">11:00 AM</div>
+                <div class="time-slot-chip" data-time="01:00 PM">01:00 PM</div>
+                <div class="time-slot-chip" data-time="03:00 PM">03:00 PM</div>
+                <div class="time-slot-chip" data-time="05:00 PM">05:00 PM</div>
+                <div class="time-slot-chip" data-time="07:00 PM">07:00 PM</div>
+                <div class="time-slot-chip" data-time="09:00 PM">09:00 PM</div>
+              </div>
+            </div>
+            <div class="wizard-buttons">
+              <span></span>
+              <button type="button" class="btn btn-primary wizard-btn-next" data-next="2">Next Step →</button>
+            </div>
+          </div>
+
+
+          <!-- Step 3: Personal Details -->
+          <!-- Step 2: Personal Details -->
+          <div class="wizard-panel" data-step="2">
+            <h4 style="margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-weight:600; color: var(--primary);">Enter Booking Details</h4>
+            <div class="form-group reveal" style="margin-bottom: 1rem;">
+              <label for="booking-name">Your Name</label>
+              <input type="text" id="booking-name" placeholder="e.g. Priya Sharma" required />
+            </div>
+            <div class="form-group reveal" style="margin-bottom: 1rem;">
+              <label for="booking-email">Email Address</label>
+              <input type="email" id="booking-email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group reveal" style="margin-bottom: 1rem;">
+              <label for="booking-guests">Number of Guests</label>
+              <input type="number" id="booking-guests" min="1" max="12" value="2" required />
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="btn wizard-btn-prev" data-prev="1">← Back</button>
+              <button type="button" class="btn btn-primary wizard-btn-next" data-next="3">Review Summary →</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Summary & Confirm -->
+          <!-- Step 3: Summary & Confirm -->
+          <div class="wizard-panel" data-step="3">
+            <h4 style="margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-weight:600; color: var(--primary);">Confirm Reservation</h4>
+            <div class="wizard-summary-card">
+              <div class="wizard-summary-row">
+                <span>Guest Name:</span>
+                <span id="summary-name">-</span>
+              </div>
+              <div class="wizard-summary-row">
+                <span>Email:</span>
+                <span id="summary-email">-</span>
+              </div>
+              <div class="wizard-summary-row">
+                <span>Date & Time:</span>
+                <span id="summary-datetime">-</span>
+              </div>
+              <div class="wizard-summary-row">
+                <span>Guests:</span>
+                <span id="summary-guests">-</span>
+              </div>
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="btn wizard-btn-prev" data-prev="2">← Back</button>
+              <button type="submit" class="btn btn-primary" id="confirm-booking-btn">Confirm Booking ✔</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-info-card reveal">
+        <h3>Visit Us</h3>
+        <div class="info-row">
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div class="info-text">
+            <h4>Address</h4>
+            <p>Opposite Galleria Mall, Prafull Society, Tarangan Society, Akota, Vadodara, Gujarat 390007</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon" aria-hidden="true">📞</div>
+          <div class="info-text">
+            <h4>Phone</h4>
+            <a href="tel:09106183731">091061 83731</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon" aria-hidden="true">🕐</div>
+          <div class="info-text">
+            <h4>Hours</h4>
+            <p>Daily 11:00 AM – 11:00 PM</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon" aria-hidden="true">💰</div>
+          <div class="info-text">
+            <h4>Price Range</h4>
+            <p>₹400 – ₹600 per person</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.twitter.com" class="social-link" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.swiggy.com/restaurants/the-tulip-touch-cafe-akota-vadodara-874908" class="social-link" aria-label="Order on Swiggy">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span class="footer-logo">☕ Tulip Touch Café</span>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="staff-portal-link">Staff Portal</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 The Tulip Touch Café. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Staff Login Modal -->
+<div class="admin-login-modal" id="admin-login-modal">
+  <div class="admin-login-card">
+    <button class="close-login-btn" id="close-login-btn" aria-label="Close Login Modal">&times;</button>
+    <h3>Staff Login</h3>
+    <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-bottom: 1.2rem; background: var(--coffee-50); padding: 0.5rem; border-radius: var(--radius-sm);">
+      🔑 <strong>Demo Credentials:</strong><br>Username: <code>admin</code> | Password: <code>admin123</code>
+    </p>
+    <form id="admin-login-form">
+      <div class="field">
+        <label for="admin-username">Username</label>
+        <input type="text" id="admin-username" required autocomplete="username" value="admin">
+      </div>
+      <div class="field">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" required autocomplete="current-password" value="admin123">
+      </div>
+      <button type="submit" class="btn btn-primary">Login to Staff Portal</button>
+    </form>
+  </div>
+</div>
+
+<!-- Admin Dashboard Panel -->
+<div class="admin-dashboard" id="admin-dashboard">
+  <div class="portal-layout">
+
+    <!-- Sidebar Navigation -->
+    <aside class="portal-sidebar">
+      <div class="portal-sidebar-brand">
+        <h2>&#9749; Staff Portal</h2>
+        <p>Tulip Touch Café — Team</p>
+      </div>
+      <nav class="portal-nav">
+        <button class="portal-nav-item active" data-panel="panel-reservations">
+          <span class="nav-icon">📋</span>
+          <span>Reservations</span>
+          <span class="nav-badge" id="staff-tab-count" style="display:none;">0</span>
+        </button>
+        <button class="portal-nav-item" data-panel="panel-email-log">
+          <span class="nav-icon">✉️</span>
+          <span>Email Log</span>
+          <span class="nav-badge" id="email-log-badge" style="display:none;">0</span>
+        </button>
+        <button class="portal-nav-item" data-panel="panel-menu">
+          <span class="nav-icon">🍽️</span>
+          <span>Menu Editor</span>
+        </button>
+      </nav>
+      <div class="portal-sidebar-footer">
+        <button id="admin-refresh-btn">🔄 Refresh Data</button>
+        <button id="admin-logout-btn">🔓 Logout</button>
+        <button id="admin-close-btn">✕ Close Portal</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="portal-main">
+      <div class="portal-topbar">
+        <h3 id="portal-topbar-title">📋 Reservations</h3>
+      </div>
+      <div class="portal-content">
+
+        <!-- PANEL: Reservations -->
+        <div class="portal-panel active" id="panel-reservations">
+          <div class="staff-stats-grid">
+            <div class="staff-stat-card">
+              <div class="staff-stat-icon">📅</div>
+              <div class="staff-stat-info">
+                <div class="stat-value" id="stat-total-bookings">0</div>
+                <div class="stat-label">Total Bookings</div>
+              </div>
+            </div>
+            <div class="staff-stat-card">
+              <div class="staff-stat-icon">👥</div>
+              <div class="staff-stat-info">
+                <div class="stat-value" id="stat-total-guests">0</div>
+                <div class="stat-label">Expected Guests</div>
+              </div>
+            </div>
+            <div class="staff-stat-card">
+              <div class="staff-stat-icon">⏳</div>
+              <div class="staff-stat-info">
+                <div class="stat-value" id="stat-pending-count">0</div>
+                <div class="stat-label">Pending Confirm</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="staff-filter-bar">
+            <input type="text" id="staff-search-input" class="staff-search-input" placeholder="🔍 Search by name, date, ID, or seating..." aria-label="Search bookings" />
+            <button type="button" class="btn-walkin" id="staff-add-walkin-btn">&#x2795; Walk-in Booking</button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table" role="table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Guest</th>
+                  <th>Date &amp; Time</th>
+                  <th>Guests</th>
+
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-bookings-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL: Email Log -->
+        <div class="portal-panel" id="panel-email-log">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:0.8rem;">
+            <div>
+              <h3 style="margin:0 0 0.2rem;font-family:'Playfair Display',serif;font-size:1.25rem;">Confirmation Email Log</h3>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">All emails dispatched to guests — click ✉️ Resend to re-send anytime.</p>
+            </div>
+            <button class="admin-action-btn delete-btn" id="clear-email-log-btn">🗑 Clear Log</button>
+          </div>
+          <div class="email-log-list" id="email-log-list">
+            <div class="email-empty">
+              <div class="empty-icon">📭</div>
+              <p>No confirmation emails yet.<br>Confirm a reservation to dispatch the first email.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL: Menu Editor -->
+        <div class="portal-panel" id="panel-menu">
+          <h3 style="margin:0 0 0.3rem;font-family:'Playfair Display',serif;font-size:1.25rem;">Menu Editor</h3>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.4rem;">Adjust prices and availability in real-time. Changes apply instantly.</p>
+          <div class="menu-customizer-grid" id="admin-menu-grid"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Walk-in Booking Modal -->
+<div class="walkin-modal-overlay" id="walkin-modal">
+  <div class="walkin-modal-card">
+    <h3>&#x2795; Add Walk-in Guest</h3>
+    <div class="walkin-field">
+      <label for="walkin-name">Guest Name</label>
+      <input type="text" id="walkin-name" placeholder="Enter guest name" />
+    </div>
+    <div class="walkin-field">
+      <label for="walkin-guests">Number of Guests</label>
+      <input type="number" id="walkin-guests" min="1" max="12" value="2" />
+    </div>
+
+    <div class="walkin-actions">
+      <button class="btn" id="walkin-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="walkin-submit-btn">&#10003; Add Booking</button>
+    </div>
+  </div>
+</div>
+
+<!-- Email Confirmation Receipt Modal -->
+<div class="email-modal-overlay" id="email-confirmation-modal">
+  <div class="email-modal-card">
+    <div class="email-modal-header">
+      <h3><span>✉️</span> Confirmation Email Sent to Guest</h3>
+      <button class="close-login-btn" id="close-email-modal-btn" style="position:static; font-size:1.4rem; color:white;">&times;</button>
+    </div>
+    <div class="email-modal-body" id="email-modal-content">
+      <div class="email-meta-box">
+        <div class="email-meta-row">
+          <span class="email-meta-label">To:</span>
+          <span id="email-preview-to" style="font-weight:600; color:#0d9488;">guest@example.com</span>
+        </div>
+        <div class="email-meta-row">
+          <span class="email-meta-label">From:</span>
+          <span>reservations@tuliptouchcafe.com (The Tulip Touch Café)</span>
+        </div>
+        <div class="email-meta-row">
+          <span class="email-meta-label">Subject:</span>
+          <span id="email-preview-subject" style="font-weight:600;">Your Table Reservation is Confirmed! — Tulip Touch Café</span>
+        </div>
+        <div class="email-meta-row">
+          <span class="email-meta-label">Status:</span>
+          <span style="color:#0d9488; font-weight:700;">Dispatched & Logged ✔</span>
+        </div>
+      </div>
+
+      <div class="email-template-ticket" id="email-printable-ticket">
+        <div class="email-ticket-header">
+          <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">☕</div>
+          <h4 style="font-family: 'Playfair Display', serif; margin:0; color: #3d2516;">The Tulip Touch Café</h4>
+          <p style="font-size: 0.8rem; color: #7a7a7a; margin-top: 0.2rem;">Akota, Vadodara · Artisanal Coffee & Dining</p>
+          <div style="margin-top: 0.8rem; display:inline-block; background:#0d94881a; color:#0d9488; font-weight:700; font-size:0.8rem; padding:0.3rem 0.8rem; border-radius:99px;">
+            TABLE RESERVATION CONFIRMED
+          </div>
+        </div>
+
+        <p style="font-size: 0.95rem; margin-bottom: 1rem; color: #2c1a10;">
+          Dear <strong id="email-guest-name">Priya Sharma</strong>,
+        </p>
+        <p style="font-size: 0.88rem; color: #5c3a22; line-height: 1.6; margin-bottom: 1.2rem;">
+          Great news! Your table reservation at <strong>The Tulip Touch Café</strong> has been approved and confirmed by our team. We have prepared the perfect spot for you and your guests!
+        </p>
+
+        <div class="email-ticket-details">
+          <div class="email-detail-item">
+            <div class="email-detail-label">Booking ID</div>
+            <div class="email-detail-val" id="email-ticket-id" style="font-family:monospace; color:#0d9488;">TTC-0001</div>
+          </div>
+          <div class="email-detail-item">
+            <div class="email-detail-label">Number of Guests</div>
+            <div class="email-detail-val" id="email-ticket-guests">2 Guests</div>
+          </div>
+          <div class="email-detail-item">
+            <div class="email-detail-label">Date</div>
+            <div class="email-detail-val" id="email-ticket-date">2026-08-18</div>
+          </div>
+          <div class="email-detail-item">
+            <div class="email-detail-label">Time Slot</div>
+            <div class="email-detail-val" id="email-ticket-time">07:00 PM</div>
+          </div>
+          <div class="email-detail-item" style="grid-column: span 2;">
+            <div class="email-detail-label">Seating Preference</div>
+            <div class="email-detail-val" id="email-ticket-seating">Cozy Corner 🛋️</div>
+          </div>
+        </div>
+
+        <div style="background:#fdfaf5; border:1px dashed #c49058; border-radius:8px; padding:0.9rem; font-size:0.82rem; color:#5c3a22; line-height:1.5; margin-top:1rem;">
+          📍 <strong>Address:</strong> Opposite Galleria Mall, Prafull Society, Tarangan Society, Akota, Vadodara, Gujarat 390007<br>
+          📞 <strong>Phone:</strong> 091061 83731<br>
+          ⏰ <strong>Please Note:</strong> Your table will be held for 15 minutes past your reserved time.
+        </div>
+      </div>
+    </div>
+    <div class="email-modal-footer">
+      <div style="display:flex; gap:0.5rem;">
+        <button type="button" class="btn btn-primary" id="email-open-mailto-btn" style="font-size:0.85rem; padding:0.5rem 1rem;">✉️ Open in Email Client</button>
+        <button type="button" class="btn" id="email-print-btn" style="background:#f0ddc4; color:#3d2516; font-size:0.85rem; padding:0.5rem 1rem; border:none;">🖨️ Print Slip</button>
+      </div>
+      <button type="button" class="btn" id="email-close-btn" style="background:#1a0f0a; color:white; font-size:0.85rem; padding:0.5rem 1rem; border:none;">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script src="config.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---- Load Configuration ---- */
+  const config = window.siteConfig || {};
+
+  if (config.brand) {
+    document.title = `${config.brand.name} | ${config.brand.tagline}`;
+    // Optional: dynamically set other text elements if needed
+  }
+
+  /* ---- Dynamic Menu Rendering ---- */
+  function renderMenu() {
+    const menuGrid = document.getElementById('menu-grid');
+    if (!menuGrid || !config.menu) return;
+
+    menuGrid.innerHTML = ''; // clear out placeholder
+
+    config.menu.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'menu-card reveal';
+      card.setAttribute('data-category', item.category);
+
+      let popularTag = item.popular ? `<span class="popular-tag">Popular</span>` : '';
+
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" class="thumb" loading="lazy" />
+        <div class="menu-info">
+          <h4>${item.name} ${popularTag}</h4>
+          <p class="menu-desc">${item.description}</p>
+          <span class="menu-price">${item.price}</span>
+        </div>
+      `;
+      menuGrid.appendChild(card);
+    });
+  }
+
+  renderMenu();
+
+  /* ---- Sticky header scroll effect ---- */
+  const header = document.getElementById('site-header');
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 60);
+    backToTop.classList.toggle('visible', y > 500);
+  });
+
+  /* ---- Back to top ---- */
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---- Hamburger menu ---- */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ---- Active nav highlight ---- */
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = navLinks.querySelectorAll('a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => a.classList.remove('active'));
+        const activeLink = navLinks.querySelector(`a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => observer.observe(s));
+
+  /* ---- Scroll reveal ---- */
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => revealObs.observe(el));
+
+  /* ---- Menu tabs (functional category filter) ---- */
+  const menuCards = document.querySelectorAll('.menu-card');
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.getAttribute('data-category');
+      menuCards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = '';
+          card.classList.add('visible');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ---- Lightbox ---- */
+  const lightbox    = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    const open = () => {
+      lightboxImg.src = item.querySelector('img').src;
+      lightboxImg.alt = item.querySelector('img').alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+    item.addEventListener('click', open);
+    item.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+  });
+
+  const closeLB = () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+  lightboxClose.addEventListener('click', closeLB);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLB(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+
+  /* ---- Cozy Mode Theme Toggle ---- */
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = themeToggle.querySelector('.sun-icon');
+  const moonIcon = themeToggle.querySelector('.moon-icon');
+
+  function getSavedTheme() {
+    return localStorage.getItem('cozy-theme') || 'light';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    } else {
+      document.body.classList.remove('dark-mode');
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    }
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = getSavedTheme();
+    const targetTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('cozy-theme', targetTheme);
+    applyTheme(targetTheme);
+  });
+
+  applyTheme(getSavedTheme());
+
+  /* ---- Menu Live Search ---- */
+  const searchInput = document.getElementById('menu-search');
+  
+  function filterMenu() {
+    const query = searchInput.value.toLowerCase().trim();
+    const activeTab = document.querySelector('.menu-tab.active');
+    const activeCategory = activeTab ? activeTab.getAttribute('data-category') : 'all';
+
+    const menuCards = document.querySelectorAll('.menu-card');
+    menuCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const name = card.querySelector('h4').textContent.toLowerCase();
+      const desc = card.querySelector('.menu-desc').textContent.toLowerCase();
+      
+      const categoryMatch = (activeCategory === 'all' || cardCategory === activeCategory);
+      const searchMatch = (name.includes(query) || desc.includes(query));
+
+      if (categoryMatch && searchMatch) {
+        card.style.display = '';
+        card.classList.add('visible');
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', filterMenu);
+  
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      setTimeout(filterMenu, 10);
+    });
+  });
+
+  /* ---- Reservation Wizard Logic ---- */
+  const wizardForm = document.getElementById('reservation-wizard-form');
+  const stepPanels = wizardForm.querySelectorAll('.wizard-panel');
+  const stepNodes = document.querySelectorAll('.wizard-step-node');
+  const progressLine = document.getElementById('wizard-progress');
+
+  let currentStep = 1;
+  let selectedTime = "11:00 AM";
+
+  const dateInput = document.getElementById('booking-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    dateInput.value = today;
+  }
+
+  const timeContainer = document.getElementById('time-slots-container');
+  timeContainer.addEventListener('click', (e) => {
+    const chip = e.target.closest('.time-slot-chip');
+    if (!chip) return;
+    timeContainer.querySelectorAll('.time-slot-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    selectedTime = chip.dataset.time;
+  });
+
+
+
+  function navigateToStep(step) {
+    if (step === 2 && currentStep === 1) {
+      if (!dateInput.value) {
+        alert("Please select a date first.");
+        return;
+      }
+    }
+    if (step === 3 && currentStep === 2) {
+      const name = document.getElementById('booking-name').value.trim();
+      const email = document.getElementById('booking-email').value.trim();
+      const guests = document.getElementById('booking-guests').value;
+      
+      if (!name || !email || !guests) {
+        alert("Please fill in all details.");
+        return;
+      }
+
+      // Name validation: Only letters and spaces, at least 3 characters
+      const nameRegex = /^[A-Za-z\s]{3,}$/;
+      if (!nameRegex.test(name)) {
+        alert("Please enter a valid name (letters only, at least 3 characters).");
+        return;
+      }
+
+      // Email validation: basic email regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      document.getElementById('summary-name').textContent = name;
+      document.getElementById('summary-email').textContent = email;
+      document.getElementById('summary-datetime').textContent = `${dateInput.value} at ${selectedTime}`;
+      document.getElementById('summary-guests').textContent = `${guests} Guests`;
+    }
+
+    stepPanels.forEach(panel => panel.classList.remove('active'));
+    wizardForm.querySelector(`.wizard-panel[data-step="${step}"]`).classList.add('active');
+    
+    stepNodes.forEach(node => {
+      const nStep = parseInt(node.dataset.step);
+      if (nStep < step) {
+        node.className = 'wizard-step-node completed';
+      } else if (nStep === step) {
+        node.className = 'wizard-step-node active';
+      } else {
+        node.className = 'wizard-step-node';
+      }
+    });
+
+    progressLine.style.width = `${((step - 1) / (stepNodes.length - 1)) * 100}%`;
+    currentStep = step;
+    
+  }
+
+  wizardForm.addEventListener('click', (e) => {
+    if (e.target.classList.contains('wizard-btn-next')) {
+      const nextStep = parseInt(e.target.dataset.next);
+      navigateToStep(nextStep);
+    } else if (e.target.classList.contains('wizard-btn-prev')) {
+      const prevStep = parseInt(e.target.dataset.prev);
+      navigateToStep(prevStep);
+    }
+  });
+
+  wizardForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const bookingData = {
+      name: document.getElementById('booking-name').value.trim(),
+      email: document.getElementById('booking-email').value.trim(),
+      date: dateInput.value,
+      time: selectedTime,
+      guests: parseInt(document.getElementById('booking-guests').value),
+      status: 'Pending'
+    };
+
+    // Retrieve existing bookings
+    let bookings = [];
+    try {
+      bookings = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+    } catch(err) {
+      bookings = [];
+    }
+
+    // Check if slot is already booked for active bookings
+    const isConflict = bookings.some(b => b.date === bookingData.date && b.time === bookingData.time && b.status !== 'Cancelled');
+    if (isConflict) {
+      alert('This time slot is already booked. Please choose another date or time.');
+      return;
+    }
+
+    // Generate Booking ID
+    const nextId = bookings.length > 0 ? Math.max(...bookings.map(b => b.numericId || 0)) + 1 : 1;
+    bookingData.numericId = nextId;
+    bookingData.bookingId = `TTC-${nextId.toString().padStart(4, '0')}`;
+    bookingData.created_at = new Date().toISOString();
+
+    // Try sending to backend server if available
+    try {
+      fetch('http://localhost:3000/api/reserve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingData)
+      }).catch(() => {});
+    } catch(err) {}
+
+    // Save to local storage
+    bookings.push(bookingData);
+    localStorage.setItem('ttc_bookings', JSON.stringify(bookings));
+
+    alert(`📋 Reservation Request Submitted!\n\nBooking ID: ${bookingData.bookingId}\nGuest: ${bookingData.name}\nDate & Time: ${bookingData.date} at ${bookingData.time}\n\nYour request is now in the Staff Portal. Once staff confirms your seat, a confirmation email will be sent to:\n${bookingData.email}`);
+    
+    wizardForm.reset();
+    selectedTime = "11:00 AM";
+    navigateToStep(1);
+
+    // Update staff portal in real-time
+    updateStaffBadge();
+    renderAdminBookings(bookingData.bookingId);
+  });
+
+  /* ---- Dynamic Coffee Steam Animation ---- */
+  function addSteamAnimations() {
+    const hotItems = document.querySelectorAll('.menu-card[data-category="coffee"], .product-card');
+    hotItems.forEach(card => {
+      const text = card.innerHTML;
+      const isHot = text.includes('Cappuccino') || text.includes('Coffee') || text.includes('Hot Chocolate') || text.includes('Brownie Coffee') || text.includes('Biscoff');
+      if (!isHot) return;
+
+      const imgWrapper = card.querySelector('.img-wrapper') || card;
+      if (!imgWrapper.style.position) {
+        imgWrapper.style.position = 'relative';
+      }
+
+      const steam = document.createElement('div');
+      steam.className = 'steam-container';
+      steam.innerHTML = `
+        <div class="steam-line"></div>
+        <div class="steam-line"></div>
+        <div class="steam-line"></div>
+      `;
+      imgWrapper.appendChild(steam);
+    });
+  }
+  addSteamAnimations();
+
+  /* ---- Admin & Staff Panel Logic ---- */
+  const staffPortalLink = document.getElementById('staff-portal-link');
+  const headerStaffPortalLink = document.getElementById('header-staff-portal-link');
+  const staffBookingBadge = document.getElementById('staff-booking-badge');
+  const staffTabCount = document.getElementById('staff-tab-count');
+  const loginModal = document.getElementById('admin-login-modal');
+  const closeLoginBtn = document.getElementById('close-login-btn');
+  const loginForm = document.getElementById('admin-login-form');
+  const adminDashboard = document.getElementById('admin-dashboard');
+  const logoutBtn = document.getElementById('admin-logout-btn');
+  const refreshBtn = document.getElementById('admin-refresh-btn');
+  const bookingsTableBody = document.getElementById('admin-bookings-table-body');
+  const menuGrid = document.getElementById('admin-menu-grid');
+  const staffSearchInput = document.getElementById('staff-search-input');
+  const staffAddWalkinBtn = document.getElementById('staff-add-walkin-btn');
+
+  // Email Modal Elements
+  const emailModal = document.getElementById('email-confirmation-modal');
+  const closeEmailBtn = document.getElementById('close-email-modal-btn');
+  const emailDoneBtn = document.getElementById('email-close-btn');
+  const emailOpenMailtoBtn = document.getElementById('email-open-mailto-btn');
+  const emailPrintBtn = document.getElementById('email-print-btn');
+  let currentActiveEmailBooking = null;
+
+  function updateStaffBadge() {
+    let bookings = [];
+    try {
+      bookings = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+    } catch(err) {
+      bookings = [];
+    }
+    const activeCount = bookings.filter(b => b.status !== 'Cancelled').length;
+    if (staffBookingBadge) {
+      staffBookingBadge.textContent = activeCount;
+      staffBookingBadge.style.display = activeCount > 0 ? 'inline-block' : 'none';
+    }
+    if (staffTabCount) {
+      staffTabCount.textContent = activeCount;
+    }
+    const emailCount = bookings.filter(b => b.status === 'Confirmed' || b.status === 'Seated').length;
+    const emailBadge = document.getElementById('email-log-badge');
+    if (emailBadge) {
+      emailBadge.textContent = emailCount;
+      emailBadge.style.display = emailCount > 0 ? 'inline-block' : 'none';
+    }
+  }
+  updateStaffBadge();
+
+  function openStaffPortal(e) {
+    if (e) e.preventDefault();
+    if (localStorage.getItem('ttc_admin_logged_in') === 'true') {
+      adminDashboard.classList.add('active');
+      renderAdminBookings();
+      renderAdminMenuCustomizer();
+    } else {
+      loginModal.classList.add('active');
+    }
+  }
+
+  if (staffPortalLink) staffPortalLink.addEventListener('click', openStaffPortal);
+  if (headerStaffPortalLink) headerStaffPortalLink.addEventListener('click', openStaffPortal);
+
+  closeLoginBtn.addEventListener('click', () => {
+    loginModal.classList.remove('active');
+  });
+
+  // Handle Login Form Submit
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const u = document.getElementById('admin-username').value.trim();
+    const p = document.getElementById('admin-password').value;
+
+    if (u === 'admin' && p === 'admin123') {
+      localStorage.setItem('ttc_admin_logged_in', 'true');
+      loginModal.classList.remove('active');
+      adminDashboard.classList.add('active');
+      renderAdminBookings();
+      renderAdminMenuCustomizer();
+    } else {
+      alert('Invalid username or password. Demo credentials: admin / admin123');
+    }
+  });
+
+  // Handle Close & Logout
+  const closeAdminBtn = document.getElementById('admin-close-btn');
+  closeAdminBtn.addEventListener('click', () => {
+    adminDashboard.classList.remove('active');
+  });
+
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('ttc_admin_logged_in');
+    adminDashboard.classList.remove('active');
+  });
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      renderAdminBookings();
+      renderAdminMenuCustomizer();
+      alert('Reservations updated!');
+    });
+  }
+
+  // Email Modal Close
+  function closeEmailModal() {
+    if (emailModal) emailModal.classList.remove('active');
+  }
+  if (closeEmailBtn) closeEmailBtn.addEventListener('click', closeEmailModal);
+  if (emailDoneBtn) emailDoneBtn.addEventListener('click', closeEmailModal);
+
+  // Print Email Receipt
+  if (emailPrintBtn) {
+    emailPrintBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  // Open in Mail Client (mailto:)
+  if (emailOpenMailtoBtn) {
+    emailOpenMailtoBtn.addEventListener('click', () => {
+      if (!currentActiveEmailBooking) return;
+      const b = currentActiveEmailBooking;
+      const subject = encodeURIComponent(`Table Reservation Confirmed [${b.bookingId}] — The Tulip Touch Café`);
+      const body = encodeURIComponent(
+`Dear ${b.name},
+
+Great news! Your table reservation at The Tulip Touch Café has been confirmed by our staff.
+
+--- RESERVATION DETAILS ---
+Booking ID: ${b.bookingId}
+Date: ${b.date}
+Time: ${b.time}
+Guests: ${b.guests}
+Seating: ${b.seating}
+
+Address: Opposite Galleria Mall, Prafull Society, Akota, Vadodara, Gujarat 390007
+Phone: 091061 83731
+
+We look forward to serving you!
+The Tulip Touch Café Team`
+      );
+      window.location.href = `mailto:${b.email}?subject=${subject}&body=${body}`;
+    });
+  }
+
+  // Display Dispatched Email Confirmation to Staff & Customer
+  function triggerEmailConfirmation(b) {
+    currentActiveEmailBooking = b;
+    document.getElementById('email-preview-to').textContent = `${b.name} <${b.email}>`;
+    document.getElementById('email-guest-name').textContent = b.name;
+    document.getElementById('email-ticket-id').textContent = b.bookingId;
+    document.getElementById('email-ticket-guests').textContent = `${b.guests} Guests`;
+    document.getElementById('email-ticket-date').textContent = b.date;
+    document.getElementById('email-ticket-time').textContent = b.time;
+
+    // Send API call to backend email dispatcher
+    try {
+      fetch('http://localhost:3000/api/confirm-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingId: b.bookingId, email: b.email, name: b.name, date: b.date, time: b.time, guests: b.guests })
+      }).catch(() => {});
+    } catch(e) {}
+
+    // Show Confirmation Email Modal
+    if (emailModal) {
+      emailModal.classList.add('active');
+    }
+  }
+
+  // Quick Walk-in Booking
+  if (staffAddWalkinBtn) {
+    staffAddWalkinBtn.addEventListener('click', () => {
+      const name = prompt("Enter Walk-in Guest Name:");
+      if (!name) return;
+      const guests = prompt("Enter Number of Guests (1-12):", "2");
+      if (!guests) return;
+      const today = new Date().toISOString().split('T')[0];
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      let bookings = [];
+      try {
+        bookings = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+      } catch(err) {
+        bookings = [];
+      }
+
+      const nextId = bookings.length > 0 ? Math.max(...bookings.map(b => b.numericId || 0)) + 1 : 1;
+      const newBooking = {
+        numericId: nextId,
+        bookingId: `TTC-${nextId.toString().padStart(4, '0')}`,
+        name: name.trim(),
+        email: "walkin@cafe.internal",
+        date: today,
+        time: timeStr,
+        guests: parseInt(guests) || 2,
+        status: 'Seated',
+        created_at: new Date().toISOString()
+      };
+
+      bookings.push(newBooking);
+      localStorage.setItem('ttc_bookings', JSON.stringify(bookings));
+      renderAdminBookings(newBooking.bookingId);
+      updateStaffBadge();
+    });
+  }
+
+  // Live search in Staff Portal
+  if (staffSearchInput) {
+    staffSearchInput.addEventListener('input', () => {
+      renderAdminBookings();
+    });
+  }
+
+  // Tab switching in Dashboard
+  const adminTabBtns = document.querySelectorAll('.portal-nav-item');
+  const adminTabContents = document.querySelectorAll('.portal-panel');
+
+  adminTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      adminTabBtns.forEach(b => b.classList.remove('active'));
+      adminTabContents.forEach(c => c.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetId = btn.dataset.panel;
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+  // Render Bookings list with live stats, search and actions
+  function renderAdminBookings(highlightId) {
+    if (!bookingsTableBody) return;
+    bookingsTableBody.innerHTML = '';
+    let bookings = [];
+    try {
+      bookings = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+    } catch(err) {
+      bookings = [];
+    }
+
+    // Calculate Summary Stats
+    const activeBookings = bookings.filter(b => b.status !== 'Cancelled');
+    const totalGuests = activeBookings.reduce((sum, b) => sum + (parseInt(b.guests) || 0), 0);
+    
+    const statBookingsEl = document.getElementById('stat-total-bookings');
+    const statGuestsEl = document.getElementById('stat-total-guests');
+
+    if (statBookingsEl) statBookingsEl.textContent = activeBookings.length;
+    if (statGuestsEl) statGuestsEl.textContent = totalGuests;
+
+    updateStaffBadge();
+
+    // Filter by search term
+    const query = staffSearchInput ? staffSearchInput.value.toLowerCase().trim() : '';
+    let filteredBookings = bookings;
+    if (query) {
+      filteredBookings = bookings.filter(b => 
+        (b.name && b.name.toLowerCase().includes(query)) ||
+        (b.email && b.email.toLowerCase().includes(query)) ||
+        (b.bookingId && b.bookingId.toLowerCase().includes(query)) ||
+        (b.date && b.date.toLowerCase().includes(query)) ||
+        (b.status && b.status.toLowerCase().includes(query))
+      );
+    }
+
+    if (filteredBookings.length === 0) {
+      bookingsTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 2rem; color: var(--text-muted);">No reservations found matching your criteria.</td></tr>`;
+      return;
+    }
+
+    // Sort by created_at desc (newest bookings first)
+    filteredBookings.sort((a,b) => new Date(b.created_at || b.date) - new Date(a.created_at || a.date));
+
+    filteredBookings.forEach(b => {
+      const tr = document.createElement('tr');
+      if (highlightId && b.bookingId === highlightId) {
+        tr.className = 'new-booking-highlight';
+      }
+
+      const status = b.status || 'Pending';
+      let statusClass = 'pending';
+      if (status === 'Confirmed') statusClass = 'confirmed';
+      if (status === 'Seated') statusClass = 'seated';
+      if (status === 'Cancelled') statusClass = 'cancelled';
+
+      tr.innerHTML = `
+        <td><strong style="color:var(--primary); font-family:monospace; font-size:0.95rem;">${b.bookingId}</strong></td>
+        <td>
+          <div style="font-weight:600;">${b.name}</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">${b.email}</div>
+        </td>
+        <td>
+          <div>${b.date}</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">${b.time}</div>
+        </td>
+        <td><span style="font-weight:600;">${b.guests}</span> <span style="font-size:0.75rem; color:var(--text-muted);">guests</span></td>
+
+        <td><span class="status-badge ${statusClass}">${status}</span></td>
+        <td>
+          ${status === 'Pending' ? `<button class="admin-action-btn confirm-btn" data-numeric-id="${b.numericId}" title="Confirm seat and send confirmation email">✉️ Confirm & Send Email</button>` : ''}
+          ${status === 'Confirmed' ? `<button class="admin-action-btn seat-btn" data-numeric-id="${b.numericId}" title="Mark as Seated">✓ Seat</button><button class="admin-action-btn resend-email-btn" data-numeric-id="${b.numericId}" style="background:#0284c7; color:white;" title="View & Resend Email">✉️ Mail</button>` : ''}
+          ${status !== 'Cancelled' ? `<button class="admin-action-btn cancel-btn" data-numeric-id="${b.numericId}" title="Cancel Reservation">✕</button>` : ''}
+          <button class="admin-action-btn delete-btn" data-numeric-id="${b.numericId}" title="Delete Record">🗑️</button>
+        </td>
+      `;
+      bookingsTableBody.appendChild(tr);
+    });
+
+    // Hook Confirm & Send Email buttons
+    bookingsTableBody.querySelectorAll('.confirm-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        let currentList = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+        const item = currentList.find(x => x.numericId === numId);
+        if (item) {
+          item.status = 'Confirmed';
+          localStorage.setItem('ttc_bookings', JSON.stringify(currentList));
+          renderAdminBookings();
+          triggerEmailConfirmation(item);
+        }
+      });
+    });
+
+    // Hook Resend / View Email buttons
+    bookingsTableBody.querySelectorAll('.resend-email-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        let currentList = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+        const item = currentList.find(x => x.numericId === numId);
+        if (item) {
+          triggerEmailConfirmation(item);
+        }
+      });
+    });
+
+    // Hook Seat buttons
+    bookingsTableBody.querySelectorAll('.seat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        let currentList = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+        const item = currentList.find(x => x.numericId === numId);
+        if (item) {
+          item.status = 'Seated';
+          localStorage.setItem('ttc_bookings', JSON.stringify(currentList));
+          renderAdminBookings();
+        }
+      });
+    });
+
+    // Hook Cancel buttons
+    bookingsTableBody.querySelectorAll('.cancel-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        if (confirm('Cancel this reservation?')) {
+          let currentList = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+          const item = currentList.find(x => x.numericId === numId);
+          if (item) {
+            item.status = 'Cancelled';
+            localStorage.setItem('ttc_bookings', JSON.stringify(currentList));
+            renderAdminBookings();
+          }
+        }
+      });
+    });
+
+    // Hook Delete buttons
+    bookingsTableBody.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        if (confirm('Delete this reservation completely from records?')) {
+          let currentList = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+          let updated = currentList.filter(x => x.numericId !== numId);
+          localStorage.setItem('ttc_bookings', JSON.stringify(updated));
+          renderAdminBookings();
+        }
+      });
+    });
+
+    // Render Email Log List alongside bookings
+    renderEmailLog();
+  }
+
+  function renderEmailLog() {
+    const emailLogList = document.getElementById('email-log-list');
+    if (!emailLogList) return;
+    
+    let bookings = [];
+    try {
+      bookings = JSON.parse(localStorage.getItem('ttc_bookings')) || [];
+    } catch(err) {
+      bookings = [];
+    }
+
+    const confirmedBookings = bookings.filter(b => b.status === 'Confirmed' || b.status === 'Seated');
+    
+    if (confirmedBookings.length === 0) {
+      emailLogList.innerHTML = `
+        <div class="email-empty">
+          <div class="empty-icon">📫</div>
+          <p>No confirmation emails yet.<br>Confirm a reservation to dispatch the first email.</p>
+        </div>`;
+      return;
+    }
+
+    emailLogList.innerHTML = '';
+    
+    confirmedBookings.sort((a,b) => new Date(b.created_at || b.date) - new Date(a.created_at || a.date));
+
+    confirmedBookings.forEach(b => {
+      const el = document.createElement('div');
+      el.className = 'email-log-item';
+      el.innerHTML = `
+        <div class="email-log-icon">✉️</div>
+        <div class="email-log-info">
+          <div class="log-guest">${b.name} (${b.email})</div>
+          <div class="log-meta">Booking ID: ${b.bookingId}</div>
+        </div>
+        <div class="email-log-status">Sent</div>
+        <button class="email-log-btn" data-numeric-id="${b.numericId}">View</button>
+      `;
+      emailLogList.appendChild(el);
+    });
+
+    emailLogList.querySelectorAll('.email-log-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const numId = parseInt(btn.dataset.numericId);
+        const item = confirmedBookings.find(x => x.numericId === numId);
+        if (item) {
+          triggerEmailConfirmation(item);
+        }
+      });
+    });
+  }
+
+  const clearEmailLogBtn = document.getElementById('clear-email-log-btn');
+  if (clearEmailLogBtn) {
+    clearEmailLogBtn.addEventListener('click', () => {
+      alert('Email log is tied to active confirmed reservations. Clear or cancel reservations to clear the log.');
+    });
+  }
+
+  // Generate unique IDs for menu cards if not already present
+  const liveMenuCards = document.querySelectorAll('.menu-card');
+  liveMenuCards.forEach((card, index) => {
+    if (!card.dataset.id) {
+      const name = card.querySelector('h4').firstChild.textContent.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
+      card.dataset.id = name || `item-${index}`;
+    }
+    const priceEl = card.querySelector('.menu-price');
+    if (priceEl && !card.dataset.defaultPrice) {
+      card.dataset.defaultPrice = priceEl.textContent.replace('₹', '').trim();
+    }
+  });
+
+  // Apply customizations (prices / sold-out state) on page mount
+  function applyMenuCustomizations() {
+    let custom = {};
+    try {
+      custom = JSON.parse(localStorage.getItem('ttc_menu_customizations')) || {};
+    } catch(e) {
+      custom = {};
+    }
+
+    liveMenuCards.forEach(card => {
+      const itemId = card.dataset.id;
+      const priceEl = card.querySelector('.menu-price');
+      const titleEl = card.querySelector('h4');
+      if (!priceEl || !titleEl) return;
+
+      const itemSettings = custom[itemId];
+      if (itemSettings) {
+        // Price update
+        if (itemSettings.price) {
+          priceEl.textContent = `₹${itemSettings.price}`;
+        } else {
+          priceEl.textContent = `₹${card.dataset.defaultPrice}`;
+        }
+
+        // Sold out state
+        if (itemSettings.soldOut) {
+          card.classList.add('sold-out-card');
+          card.style.opacity = '0.5';
+          if (!titleEl.querySelector('.sold-out-tag')) {
+            const tag = document.createElement('span');
+            tag.className = 'sold-out-tag';
+            tag.style.background = '#dc3545';
+            tag.style.color = 'white';
+            tag.style.fontSize = '0.65rem';
+            tag.style.padding = '0.2rem 0.5rem';
+            tag.style.borderRadius = '3px';
+            tag.style.marginLeft = '0.5rem';
+            tag.style.display = 'inline-block';
+            tag.textContent = 'Sold Out';
+            titleEl.appendChild(tag);
+          }
+        } else {
+          card.classList.remove('sold-out-card');
+          card.style.opacity = '1';
+          const tag = titleEl.querySelector('.sold-out-tag');
+          if (tag) tag.remove();
+        }
+      } else {
+        // Reset to default
+        priceEl.textContent = `₹${card.dataset.defaultPrice}`;
+        card.classList.remove('sold-out-card');
+        card.style.opacity = '1';
+        const tag = titleEl.querySelector('.sold-out-tag');
+        if (tag) tag.remove();
+      }
+    });
+  }
+  applyMenuCustomizations();
+
+  // Render Menu Customizer tab in admin dashboard
+  function renderAdminMenuCustomizer() {
+    menuGrid.innerHTML = '';
+    let custom = {};
+    try {
+      custom = JSON.parse(localStorage.getItem('ttc_menu_customizations')) || {};
+    } catch(e) {
+      custom = {};
+    }
+
+    liveMenuCards.forEach(card => {
+      const itemId = card.dataset.id;
+      const name = card.querySelector('h4').firstChild.textContent.trim();
+      const imgUrl = card.querySelector('.thumb').src;
+      const defaultPrice = card.dataset.defaultPrice;
+      const currentSettings = custom[itemId] || { price: defaultPrice, soldOut: false };
+
+      const cardEl = document.createElement('div');
+      cardEl.className = 'customizer-card';
+      cardEl.innerHTML = `
+        <img src="${imgUrl}" alt="${name}">
+        <div class="customizer-info">
+          <h4>${name}</h4>
+          <div class="customizer-controls">
+            <span style="font-size:0.8rem; font-weight:600;">₹</span>
+            <input type="number" class="customizer-price-input" data-id="${itemId}" value="${currentSettings.price || defaultPrice}">
+            <button class="status-toggle ${currentSettings.soldOut ? 'sold-out' : ''}" data-id="${itemId}">
+              ${currentSettings.soldOut ? 'Sold Out' : 'In Stock'}
+            </button>
+          </div>
+        </div>
+      `;
+      menuGrid.appendChild(cardEl);
+    });
+
+    // Add event listeners to input elements
+    menuGrid.querySelectorAll('.customizer-price-input').forEach(input => {
+      input.addEventListener('change', (e) => {
+        const itemId = e.target.dataset.id;
+        const newPrice = e.target.value.trim();
+        
+        let customData = {};
+        try {
+          customData = JSON.parse(localStorage.getItem('ttc_menu_customizations')) || {};
+        } catch(err) {}
+
+        if (!customData[itemId]) customData[itemId] = {};
+        customData[itemId].price = newPrice;
+
+        localStorage.setItem('ttc_menu_customizations', JSON.stringify(customData));
+        applyMenuCustomizations();
+      });
+    });
+
+    menuGrid.querySelectorAll('.status-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const itemId = btn.dataset.id;
+        
+        let customData = {};
+        try {
+          customData = JSON.parse(localStorage.getItem('ttc_menu_customizations')) || {};
+        } catch(err) {}
+
+        if (!customData[itemId]) customData[itemId] = {};
+        customData[itemId].soldOut = !customData[itemId].soldOut;
+
+        localStorage.setItem('ttc_menu_customizations', JSON.stringify(customData));
+        
+        // Update button appearance
+        btn.classList.toggle('sold-out', customData[itemId].soldOut);
+        btn.textContent = customData[itemId].soldOut ? 'Sold Out' : 'In Stock';
+        
+        applyMenuCustomizations();
+      });
+    });
+  }
+
+  // End of main script
+
+})();
+</script>
+
+</body>
+</html>

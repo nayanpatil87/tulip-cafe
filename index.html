@@ -2738,17 +2738,14 @@
   <div class="admin-login-card">
     <button class="close-login-btn" id="close-login-btn" aria-label="Close Login Modal">&times;</button>
     <h3>Staff Login</h3>
-    <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-bottom: 1.2rem; background: var(--coffee-50); padding: 0.5rem; border-radius: var(--radius-sm);">
-      🔑 <strong>Demo Credentials:</strong><br>Username: <code>admin</code> | Password: <code>admin123</code>
-    </p>
     <form id="admin-login-form">
       <div class="field">
         <label for="admin-username">Username</label>
-        <input type="text" id="admin-username" required autocomplete="username" value="admin">
+        <input type="text" id="admin-username" required autocomplete="username">
       </div>
       <div class="field">
         <label for="admin-password">Password</label>
-        <input type="password" id="admin-password" required autocomplete="current-password" value="admin123">
+        <input type="password" id="admin-password" required autocomplete="current-password">
       </div>
       <button type="submit" class="btn btn-primary">Login to Staff Portal</button>
     </form>
@@ -3437,7 +3434,7 @@
       renderAdminBookings();
       renderAdminMenuCustomizer();
     } else {
-      alert('Invalid username or password. Demo credentials: admin / admin123');
+      alert('Invalid username or password.');
     }
   });
 
